@@ -1,18 +1,3 @@
-# Arquivos de compilação
-*.o
-*.out
-
-# Arquivos de execução
-*.exe
-*.bin
-
-# Arquivos de configuração
-*.cfg
-*.conf
-
-# Arquivos de backup
-*.bak
-*.backup
-
-# Arquivos de log
-*.log   
+build/
+bin/
+obj/
