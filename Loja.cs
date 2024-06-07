@@ -2,6 +2,7 @@
 
 public class Loja
 {
+    private static int _id = 1;
     public int Id { get; }
     public string Nome { get; set; }
     public int TotalClientes { get; set; }
@@ -10,6 +11,7 @@ public class Loja
 
     public Loja()
     {
+        Id = _id++;
         Clientes = new List<Cliente>();
         Roupas = new List<Roupa>();
     }
