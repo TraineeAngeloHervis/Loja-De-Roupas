@@ -3,7 +3,7 @@
 public class Loja
 {
     private static int _id = 1;
-    public int Id { get; }
+    public int Id { get; private init; }
     public string Nome { get; set; }
     public int TotalClientes { get; set; }
     public List<Cliente> Clientes { get; set; }

@@ -21,15 +21,17 @@ var roupa = new Roupa
     ValorPeca = 50
 };
 
+var carrinho = new Carrinho();
+
 loja.CadastrarRoupa(roupa);
 
 loja.CadastrarCliente(cliente);
 
-cliente.ListarInfosCliente();
+cliente.ObterInfosCliente();
 
 cliente.Carrinho.AdicionarRoupa(roupa);
 
-cliente.ListarInfosRoupas();
+carrinho.ListarInfosRoupas();
 
 cliente.Carrinho.FinalizarPedido();
 
@@ -38,3 +40,5 @@ loja.RemoverRoupa(roupa.Id);
 loja.ObterQuantidadeClientes();
 
 loja.RemoverCliente(cliente.Id);
+
+loja.ObterQuantidadeClientes();

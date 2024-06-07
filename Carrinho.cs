@@ -2,7 +2,6 @@
 
 public class Carrinho
 {
-    public int Id { get; }
     public int IdCliente { get; set; }
     private List<Roupa> Roupas { get; set; }
     
