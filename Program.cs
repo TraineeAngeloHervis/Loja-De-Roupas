@@ -3,9 +3,8 @@ using Loja_De_Roupas;
 var loja = new Loja
 {
     Nome = "Minha Lojinha DB1",
-    TotalClientes = 0,
-    Clientes = null,
-    Roupas = null
+    Clientes = [],
+    Roupas = []
 };
 var cliente = new Cliente
 {
@@ -27,18 +26,28 @@ loja.CadastrarRoupa(roupa);
 
 loja.CadastrarCliente(cliente);
 
-cliente.ObterInfosCliente();
-
 cliente.Carrinho.AdicionarRoupa(roupa);
 
 carrinho.ListarInfosRoupas();
 
-cliente.Carrinho.FinalizarPedido();
-
-loja.RemoverRoupa(roupa.Id);
-
 loja.ObterQuantidadeClientes();
 
-loja.RemoverCliente(cliente.Id);
 
-loja.ObterQuantidadeClientes();
+Console.WriteLine("Loja: " + loja.Nome);
+Console.WriteLine("Total de roupas: " + loja.Roupas.Count);
+Console.WriteLine("Total de clientes: " + loja.Clientes.Count);
+
+cliente.ObterInfosCliente();
+
+Console.WriteLine("Roupa: " + roupa.Nome);
+Console.WriteLine("Quantidade: " + roupa.QuantidadePeca);
+Console.WriteLine("Categoria: " + roupa.CategoriaPeca);
+Console.WriteLine("Valor: " + roupa.ValorPeca);
+
+Console.WriteLine("Total de roupas no carrinho: " + cliente.Carrinho._roupas.Count);
+
+Console.WriteLine(cliente.Carrinho.FinalizarPedido(cliente));
+
+Console.WriteLine("Total de clientes: " + loja.ObterQuantidadeClientes());
+
+Console.WriteLine("Total de clientes: " + loja.ObterQuantidadeClientes());
