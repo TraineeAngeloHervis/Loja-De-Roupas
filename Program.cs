@@ -49,5 +49,3 @@ Console.WriteLine("Total de roupas no carrinho: " + cliente.Carrinho._roupas.Cou
 Console.WriteLine(cliente.Carrinho.FinalizarPedido(cliente));
 
 Console.WriteLine("Total de clientes: " + loja.ObterQuantidadeClientes());
-
-Console.WriteLine("Total de clientes: " + loja.ObterQuantidadeClientes());
