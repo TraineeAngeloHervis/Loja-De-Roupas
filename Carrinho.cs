@@ -3,7 +3,7 @@
 public class Carrinho
 {
     public Guid IdCliente { get; set; }
-    public readonly List<Roupa> _roupas;
+    private readonly List<Roupa> _roupas;
     
     public Carrinho()
     {
@@ -36,5 +36,10 @@ public class Carrinho
     {
         var total = _roupas.Sum(r => r.ValorPeca);
         return $"Pedido finalizado com sucesso! Total: {total}";
+    }
+    
+    public int ObterQuantidadeRoupas()
+    {
+        return _roupas.Count;
     }
 }

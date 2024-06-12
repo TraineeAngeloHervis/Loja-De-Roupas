@@ -1,5 +1,4 @@
-﻿#nullable enable
-namespace Loja_De_Roupas;
+﻿namespace Loja_De_Roupas;
 
 public class Cliente
 {
@@ -15,8 +14,9 @@ public class Cliente
         Carrinho = new Carrinho();
     }
     
-    public void ObterInfosCliente()
+    public string ObterInfosCliente()
     {
-        Console.WriteLine($"ID: {Id}, Nome: {Nome}, Email: {Email}, Telefone: {Telefone}");
+        var infosCliente = $"ID: {Id}, Nome: {Nome}, Email: {Email}, Telefone: {Telefone}";
+        return infosCliente;
     }
 }
