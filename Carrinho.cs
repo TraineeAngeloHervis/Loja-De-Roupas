@@ -2,47 +2,39 @@
 
 public class Carrinho
 {
-    public int IdCliente { get; set; }
-    private List<Roupa> Roupas { get; set; }
+    public Guid IdCliente { get; set; }
+    public readonly List<Roupa> _roupas;
     
     public Carrinho()
     {
-        Roupas = new List<Roupa>();
+        _roupas = new List<Roupa>();
     }
 
     public void AdicionarRoupa(Roupa roupa)
     {
-        Roupas.Add(roupa);
+        _roupas.Add(roupa);
     }
 
-    public void RemoverRoupa(int idRoupa)
+    public void RemoverRoupa(Guid idRoupa)
     {
-        var roupa = Roupas.FirstOrDefault(r => r.Id == idRoupa);
+        var roupa = _roupas.FirstOrDefault(r => r.Id == idRoupa);
         if (roupa != null)
         {
-            Roupas.Remove(roupa);
+            _roupas.Remove(roupa);
         }
     }
 
     public void ListarInfosRoupas()
     {
-        foreach (var roupa in Roupas)
+        foreach (var roupa in _roupas)
         {
             Console.WriteLine($"Nome: {roupa.Nome}, Quantidade: {roupa.QuantidadePeca}, Categoria: {roupa.CategoriaPeca}, Valor: {roupa.ValorPeca}");
         }
     }
-
-    public void FinalizarPedido()
+    
+    public string FinalizarPedido(Cliente cliente)
     {
-        decimal total = 0;
-
-        foreach (var roupa in Roupas)
-        {
-            total += roupa.ValorPeca;
-        }
-
-        Console.WriteLine($"Total do pedido: {total}");
-
-        Roupas.Clear();
+        var total = _roupas.Sum(r => r.ValorPeca);
+        return $"Pedido finalizado com sucesso! Total: {total}";
     }
 }

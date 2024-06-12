@@ -2,19 +2,10 @@
 
 public class Loja
 {
-    private static int _id = 1;
-    public int Id { get; private init; }
+    public Guid Id { get; }
     public string Nome { get; set; }
-    public int TotalClientes { get; set; }
     public List<Cliente> Clientes { get; set; }
     public List<Roupa> Roupas { get; set; }
-
-    public Loja()
-    {
-        Id = _id++;
-        Clientes = new List<Cliente>();
-        Roupas = new List<Roupa>();
-    }
 
     public int ObterQuantidadeClientes()
     {
@@ -26,7 +17,7 @@ public class Loja
         Clientes.Add(cliente);
     }
 
-    public void RemoverCliente(int idCliente)
+    public void RemoverCliente(Guid idCliente)
     {
         var cliente = Clientes.FirstOrDefault(c => c.Id == idCliente);
         if (cliente != null)
@@ -39,13 +30,13 @@ public class Loja
     {
         Roupas.Add(roupa);
     }
-
-    public void RemoverRoupa(int idRoupa)
+    public void RemoverRoupa(Guid idRoupa)
     {
-        var roupa = Roupas.FirstOrDefault(r => r.Id == idRoupa);
+        var roupa = Roupas.FirstOrDefault(r => Equals(r.Id, idRoupa));
         if (roupa != null)
         {
             Roupas.Remove(roupa);
         }
     }
+
 }
