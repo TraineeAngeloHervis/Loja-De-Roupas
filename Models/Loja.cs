@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace Loja_De_Roupas;
+namespace Loja_De_Roupas.Models;
 
 public class Loja
 {
