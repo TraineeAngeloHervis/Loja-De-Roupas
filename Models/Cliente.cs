@@ -3,7 +3,7 @@ namespace Loja_De_Roupas;
 
 public class Cliente
 {
-    public Guid Id { get; }
+    public Guid Id { get; init; }
     public required string Nome { get; set; }
     public string? Email { get; set; }
     public string? Telefone { get; set; }
@@ -15,8 +15,8 @@ public class Cliente
         Carrinho = new Carrinho();
     }
     
-    public void ObterInfosCliente()
+    public string ObterInfosCliente()
     {
-        Console.WriteLine($"ID: {Id}, Nome: {Nome}, Email: {Email}, Telefone: {Telefone}");
+        return ($"ID: {Id}, Nome: {Nome}, Email: {Email}, Telefone: {Telefone}");
     }
 }

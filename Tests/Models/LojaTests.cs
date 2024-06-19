@@ -1,6 +1,6 @@
 ﻿namespace Loja_De_Roupas;
 
-public class Loja
+public class LojaTests
 {
     public Guid Id { get; }
     public string Nome { get; set; }

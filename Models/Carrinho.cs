@@ -7,7 +7,7 @@ public class Carrinho
     
     public Carrinho()
     {
-        _roupas = new List<Roupa>();
+        _roupas = [];
     }
 
     public void AdicionarRoupa(Roupa roupa)
