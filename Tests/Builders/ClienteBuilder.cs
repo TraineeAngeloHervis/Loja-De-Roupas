@@ -22,12 +22,6 @@ public class ClienteBuilder
     public static ClienteBuilder Novo()
         => new();
 
-    public ClienteBuilder ComId(Guid id)
-    {
-        _faker.RuleFor(c => c.Id, id);
-        return this;
-    }
-
     public ClienteBuilder ComNome(string nome)
     {
         _faker.RuleFor(c => c.Nome, nome);
