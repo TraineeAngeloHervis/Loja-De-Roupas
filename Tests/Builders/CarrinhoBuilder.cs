@@ -1,7 +1,7 @@
 ﻿using Bogus;
-using Loja_De_Roupas;
+using Loja_De_Roupas.Models;
 
-namespace Loja;
+namespace Loja_De_Roupas.Tests.Builders;
 
 public class CarrinhoBuilder
 {
@@ -15,5 +15,23 @@ public class CarrinhoBuilder
                 _roupas = []
             });
     }
+    
+    public static CarrinhoBuilder Novo()
+        => new();
+
+    public CarrinhoBuilder ComIdCliente(Guid idCliente)
+    {
+        _faker.RuleFor(c => c.IdCliente, f => idCliente);
+        return this;
+    }
+    
+    public CarrinhoBuilder ComRoupas(List<Roupa> roupas)
+    {
+        _faker.RuleFor(c => c._roupas, f => roupas);
+        return this;
+    }
+    
+    public Carrinho Build()
+        => _faker.Generate();
     
 }

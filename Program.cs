@@ -1,4 +1,4 @@
-using Loja_De_Roupas;
+using Loja_De_Roupas.Models;
 
 var loja = new Loja
 {

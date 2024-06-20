@@ -1,44 +1,51 @@
-﻿namespace Loja_De_Roupas.Tests.Builders;
+﻿using Loja_De_Roupas.Models;
+using Bogus;
+
+namespace Loja_De_Roupas.Tests.Builders;
 
 public class RoupaBuilder
 {
-    private string _nome = "Camiseta";
-    private int _quantidadePeca = 10;
-    private string _categoriaPeca = "Vestuário";
-    private decimal _valorPeca = 50;
+    private readonly Faker<Roupa> _faker;
 
-    public Roupa Build()
+    public RoupaBuilder()
     {
-        return new Roupa
+        _faker = new Faker<Roupa>().CustomInstantiator(f => new Roupa
         {
-            Nome = _nome,
-            QuantidadePeca = _quantidadePeca,
-            CategoriaPeca = _categoriaPeca,
-            ValorPeca = _valorPeca
-        };
+            Id = Guid.NewGuid(),
+            Nome = f.Commerce.ProductName(),
+            QuantidadePeca = f.Random.Number(1, 100),
+            CategoriaPeca = f.Commerce.Categories(1)[0],
+            ValorPeca = f.Random.Decimal(1, 1000)
+        });
     }
+    
+    public static RoupaBuilder Novo()
+        => new();
 
     public RoupaBuilder ComNome(string nome)
     {
-        _nome = nome;
+        _faker.RuleFor(r => r.Nome, nome);
         return this;
     }
-
+    
     public RoupaBuilder ComQuantidadePeca(int quantidadePeca)
     {
-        _quantidadePeca = quantidadePeca;
+        _faker.RuleFor(r => r.QuantidadePeca, quantidadePeca);
         return this;
     }
-
+    
     public RoupaBuilder ComCategoriaPeca(string categoriaPeca)
     {
-        _categoriaPeca = categoriaPeca;
+        _faker.RuleFor(r => r.CategoriaPeca, categoriaPeca);
         return this;
     }
-
+    
     public RoupaBuilder ComValorPeca(decimal valorPeca)
     {
-        _valorPeca = valorPeca;
+        _faker.RuleFor(r => r.ValorPeca, valorPeca);
         return this;
     }
+    
+    public Roupa Build()
+        => _faker.Generate();
 }

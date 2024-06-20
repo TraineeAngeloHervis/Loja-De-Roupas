@@ -1,9 +1,9 @@
-﻿namespace Loja_De_Roupas;
+﻿namespace Loja_De_Roupas.Models;
 
 public class Carrinho
 {
-    public Guid IdCliente { get; set; }
-    public readonly List<Roupa> _roupas;
+    public Guid IdCliente { get; init; }
+    public List<Roupa> _roupas;
     
     public Carrinho()
     {

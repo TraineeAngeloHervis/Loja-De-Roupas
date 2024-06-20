@@ -1,4 +1,4 @@
-﻿namespace Loja_De_Roupas;
+﻿namespace Loja_De_Roupas.Models;
 
 public class Loja
 {
@@ -30,6 +30,7 @@ public class Loja
     {
         Roupas.Add(roupa);
     }
+
     public void RemoverRoupa(Guid idRoupa)
     {
         var roupa = Roupas.FirstOrDefault(r => Equals(r.Id, idRoupa));
@@ -38,5 +39,4 @@ public class Loja
             Roupas.Remove(roupa);
         }
     }
-
 }
