@@ -1,4 +1,4 @@
-﻿using Bogus;
+using Bogus;
 using Loja_De_Roupas.Models;
 
 namespace Loja_De_Roupas.Tests.Builders;

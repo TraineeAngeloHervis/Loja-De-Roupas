@@ -1,4 +1,4 @@
-﻿using Xunit;
+using Xunit;
 using Loja_De_Roupas.Models;
 using Loja_De_Roupas.Tests.Builders;
 

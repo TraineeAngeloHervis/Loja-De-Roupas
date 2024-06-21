@@ -1,4 +1,4 @@
-﻿namespace Loja_De_Roupas.Models;
+namespace Loja_De_Roupas.Models;
 
 public class Carrinho
 {
