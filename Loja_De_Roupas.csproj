@@ -4,21 +4,23 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
+    <Nullable>disable</Nullable>
   </PropertyGroup>
 
-    <ItemGroup>
-      <PackageReference Include="FluentAssertions" Version="7.0.0-alpha.3" />
-      <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.10.0" />
-      <PackageReference Include="Moq" Version="4.20.70" />
-      <PackageReference Include="xunit" Version="2.8.1" />
-      <PackageReference Include="xunit.runner.visualstudio" Version="2.8.1">
-        <PrivateAssets>all</PrivateAssets>
-        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      </PackageReference>
-    </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Bogus" Version="35.5.1" />
+    <PackageReference Include="FluentAssertions" Version="7.0.0-alpha.3" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.10.0" />
+    <PackageReference Include="Moq" Version="4.20.70" />
+    <PackageReference Include="xunit" Version="2.8.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.8.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Exceptions\" />
-    </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
+    <Folder Include="Exceptions\" />
+  </ItemGroup>
 </Project>

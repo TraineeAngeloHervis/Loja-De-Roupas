@@ -1,26 +1,18 @@
-using Loja_De_Roupas;
 using Loja_De_Roupas.Models;
 
 var loja = new Loja
 {
     Nome = "Minha Lojinha DB1",
+    Clientes = [],
+    Roupas = []
 };
-
-var cliente1 = new Cliente
+var cliente = new Cliente
 {
     Nome = "João",
     Email = "joao@gmail.com",
     Telefone = "999999999"
 };
-
-var cliente2 = new Cliente
-{
-    Nome = "Maria",
-    Email = "maria@gmail.com",
-    Telefone = "888888888"
-};
-
-var roupa1 = new Roupa
+var roupa = new Roupa
 {
     Nome = "Camiseta",
     QuantidadePeca = 10,
@@ -28,39 +20,32 @@ var roupa1 = new Roupa
     ValorPeca = 50
 };
 
-var roupa2 = new Roupa
-{
-    Nome = "Calça",
-    QuantidadePeca = 5,
-    CategoriaPeca = "Vestuário",
-    ValorPeca = 100
-};
-
 var carrinho = new Carrinho();
 
-loja.CadastrarCliente(cliente1);
-loja.CadastrarCliente(cliente2);
-loja.CadastrarRoupa(roupa1);
-loja.CadastrarRoupa(roupa2);
-loja.RemoverRoupa(roupa1.Id);
-loja.RemoverCliente(cliente1.Id);
-loja.CadastrarCliente(cliente1);
-loja.CadastrarRoupa(roupa1);
-loja.ListarInfosClientes();
-loja.ListarInfosRoupas();
-loja.ObterQuantidadeClientes();
-loja.ObterQuantidadeRoupas();
-loja.ListarInfosRoupas();
-loja.ListarInfosLoja();
+loja.CadastrarRoupa(roupa);
 
-carrinho.AdicionarRoupa(roupa1);
-carrinho.AdicionarRoupa(roupa2);
+loja.CadastrarCliente(cliente);
+
+cliente.Carrinho.AdicionarRoupa(roupa);
+
 carrinho.ListarInfosRoupas();
-carrinho.ObterQuantidadeRoupas();
-carrinho.RemoverRoupa(roupa2.Id);
-carrinho.FinalizarPedido(cliente1);
 
-cliente1.ObterInfosCliente();
-cliente2.ObterInfosCliente();
+loja.ObterQuantidadeClientes();
 
-Console.WriteLine("FIM DO PROGRAMA!");
+
+Console.WriteLine("Loja: " + loja.Nome);
+Console.WriteLine("Total de roupas: " + loja.Roupas.Count);
+Console.WriteLine("Total de clientes: " + loja.Clientes.Count);
+
+cliente.ObterInfosCliente();
+
+Console.WriteLine("Roupa: " + roupa.Nome);
+Console.WriteLine("Quantidade: " + roupa.QuantidadePeca);
+Console.WriteLine("Categoria: " + roupa.CategoriaPeca);
+Console.WriteLine("Valor: " + roupa.ValorPeca);
+
+Console.WriteLine("Total de roupas no carrinho: " + cliente.Carrinho._roupas.Count);
+
+Console.WriteLine(cliente.Carrinho.FinalizarPedido(cliente));
+
+Console.WriteLine("Total de clientes: " + loja.ObterQuantidadeClientes());

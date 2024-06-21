@@ -2,12 +2,12 @@
 
 public class Carrinho
 {
-    public Guid IdCliente { get; set; }
-    private readonly List<Roupa> _roupas;
+    public Guid IdCliente { get; init; }
+    public List<Roupa> _roupas;
     
     public Carrinho()
     {
-        _roupas = new List<Roupa>();
+        _roupas = [];
     }
 
     public void AdicionarRoupa(Roupa roupa)
@@ -36,10 +36,5 @@ public class Carrinho
     {
         var total = _roupas.Sum(r => r.ValorPeca);
         return $"Pedido finalizado com sucesso! Total: {total}";
-    }
-    
-    public int ObterQuantidadeRoupas()
-    {
-        return _roupas.Count;
     }
 }
