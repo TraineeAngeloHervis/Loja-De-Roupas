@@ -28,7 +28,7 @@ public class LojaBuilder
         _faker.RuleFor(l => l.Nome, nome);
         return this;
     }
-
+    
     public LojaBuilder ComClientes(List<Cliente> clientes)
     {
         _faker.RuleFor(l => l.Clientes, clientes);
