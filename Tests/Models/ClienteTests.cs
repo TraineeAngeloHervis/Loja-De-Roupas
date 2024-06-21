@@ -17,7 +17,8 @@ public class ClienteTests
         var infosCliente = cliente.ObterInfosCliente();
 
         // Assert
-        var resultadoEsperado = $"ID: {cliente.Id}, Nome: {cliente.Nome}, Email: {cliente.Email}, Telefone: {cliente.Telefone}";
+        var resultadoEsperado =
+            $"ID: {cliente.Id}, Nome: {cliente.Nome}, Email: {cliente.Email}, Telefone: {cliente.Telefone}";
         Assert.Equal(resultadoEsperado, infosCliente);
     }
 }

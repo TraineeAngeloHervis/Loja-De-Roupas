@@ -18,7 +18,7 @@ public class RoupaBuilder
             ValorPeca = f.Random.Decimal(1, 1000)
         });
     }
-    
+
     public static RoupaBuilder Novo()
         => new();
 
@@ -27,25 +27,25 @@ public class RoupaBuilder
         _faker.RuleFor(r => r.Nome, nome);
         return this;
     }
-    
+
     public RoupaBuilder ComQuantidadePeca(int quantidadePeca)
     {
         _faker.RuleFor(r => r.QuantidadePeca, quantidadePeca);
         return this;
     }
-    
+
     public RoupaBuilder ComCategoriaPeca(string categoriaPeca)
     {
         _faker.RuleFor(r => r.CategoriaPeca, categoriaPeca);
         return this;
     }
-    
+
     public RoupaBuilder ComValorPeca(decimal valorPeca)
     {
         _faker.RuleFor(r => r.ValorPeca, valorPeca);
         return this;
     }
-    
+
     public Roupa Build()
         => _faker.Generate();
 }

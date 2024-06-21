@@ -4,7 +4,7 @@ public class Carrinho
 {
     public Guid IdCliente { get; init; }
     public List<Roupa> Roupas;
-    
+
     public Carrinho()
     {
         Roupas = [];
@@ -24,17 +24,26 @@ public class Carrinho
         }
     }
 
-    public void ListarInfosRoupas()
+    public string ListarInfosRoupas()
     {
+        var infosRoupas = "";
         foreach (var roupa in Roupas)
         {
-            Console.WriteLine($"Nome: {roupa.Nome}, Quantidade: {roupa.QuantidadePeca}, Categoria: {roupa.CategoriaPeca}, Valor: {roupa.ValorPeca}");
+            infosRoupas =
+                ($"Nome: {roupa.Nome}, Quantidade: {roupa.QuantidadePeca}, Categoria: {roupa.CategoriaPeca}, Valor: {roupa.ValorPeca}");
         }
+
+        return infosRoupas;
     }
-    
+
     public string FinalizarPedido(Cliente cliente)
     {
         var total = Roupas.Sum(r => r.ValorPeca);
         return $"Pedido finalizado com sucesso! Total: {total}";
+    }
+    
+    public int ObterQuantidadeRoupas()
+    {
+        return Roupas.Count;
     }
 }

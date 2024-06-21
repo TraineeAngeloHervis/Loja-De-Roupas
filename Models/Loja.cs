@@ -12,6 +12,11 @@ public class Loja
         return Clientes.Count;
     }
 
+    public int ObterQuantidadeRoupas()
+    {
+        return Roupas.Count;
+    }
+
     public void CadastrarCliente(Cliente cliente)
     {
         Clientes.Add(cliente);
@@ -38,5 +43,35 @@ public class Loja
         {
             Roupas.Remove(roupa);
         }
+    }
+
+    public string ListarInfosRoupas()
+    {
+        var infosRoupas = "";
+        foreach (var roupa in Roupas)
+        {
+            infosRoupas =
+                ($"Nome: {roupa.Nome}, Quantidade: {roupa.QuantidadePeca}, Categoria: {roupa.CategoriaPeca}, Valor: {roupa.ValorPeca}");
+        }
+
+        return infosRoupas;
+    }
+
+    public string ListarInfosClientes()
+    {
+        var infosClientes = "";
+        foreach (var cliente in Clientes)
+        {
+            infosClientes =
+                ($"ID: {cliente.Id}, Nome: {cliente.Nome}, Email: {cliente.Email}, Telefone: {cliente.Telefone}");
+        }
+
+        return infosClientes;
+    }
+
+    public string ListarInfosLoja()
+    {
+        return (
+            $"ID: {Id}, Nome: {Nome}, Quantidade de Clientes: {Clientes.Count}, Quantidade de Roupas: {Roupas.Count}");
     }
 }
