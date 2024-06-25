@@ -44,7 +44,7 @@ Console.WriteLine("Quantidade: " + roupa.QuantidadePeca);
 Console.WriteLine("Categoria: " + roupa.CategoriaPeca);
 Console.WriteLine("Valor: " + roupa.ValorPeca);
 
-Console.WriteLine("Total de roupas no carrinho: " + cliente.Carrinho._roupas.Count);
+Console.WriteLine("Total de roupas no carrinho: " + cliente.Carrinho.Roupas.Count);
 
 Console.WriteLine(cliente.Carrinho.FinalizarPedido(cliente));
 

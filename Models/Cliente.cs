@@ -1,4 +1,4 @@
-﻿namespace Loja_De_Roupas.Models;
+namespace Loja_De_Roupas.Models;
 
 public class Cliente
 {
@@ -13,7 +13,7 @@ public class Cliente
         Id = Guid.NewGuid();
         Carrinho = new Carrinho();
     }
-    
+
     public string ObterInfosCliente()
     {
         return ($"ID: {Id}, Nome: {Nome}, Email: {Email}, Telefone: {Telefone}");

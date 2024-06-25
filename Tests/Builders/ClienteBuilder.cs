@@ -1,4 +1,4 @@
-﻿using Bogus;
+using Bogus;
 using Loja_De_Roupas.Models;
 
 namespace Loja_De_Roupas.Tests.Builders;
@@ -21,6 +21,12 @@ public class ClienteBuilder
 
     public static ClienteBuilder Novo()
         => new();
+
+    public ClienteBuilder ComId(Guid id)
+    {
+        _faker.RuleFor(c => c.Id, id);
+        return this;
+    }
 
     public ClienteBuilder ComNome(string nome)
     {

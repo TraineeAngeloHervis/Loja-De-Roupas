@@ -1,4 +1,4 @@
-﻿using Bogus;
+using Bogus;
 using Loja_De_Roupas.Models;
 
 namespace Loja_De_Roupas.Tests.Builders;
@@ -40,7 +40,7 @@ public class LojaBuilder
         _faker.RuleFor(l => l.Roupas, roupas);
         return this;
     }
-    
+
     public Loja Build()
         => _faker.Generate();
 }

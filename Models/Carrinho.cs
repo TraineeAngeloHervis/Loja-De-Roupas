@@ -1,40 +1,49 @@
-﻿namespace Loja_De_Roupas.Models;
+namespace Loja_De_Roupas.Models;
 
 public class Carrinho
 {
     public Guid IdCliente { get; init; }
-    public List<Roupa> _roupas;
-    
+    public List<Roupa> Roupas;
+
     public Carrinho()
     {
-        _roupas = [];
+        Roupas = [];
     }
 
     public void AdicionarRoupa(Roupa roupa)
     {
-        _roupas.Add(roupa);
+        Roupas.Add(roupa);
     }
 
     public void RemoverRoupa(Guid idRoupa)
     {
-        var roupa = _roupas.FirstOrDefault(r => r.Id == idRoupa);
+        var roupa = Roupas.FirstOrDefault(r => r.Id == idRoupa);
         if (roupa != null)
         {
-            _roupas.Remove(roupa);
+            Roupas.Remove(roupa);
         }
     }
 
-    public void ListarInfosRoupas()
+    public string ListarInfosRoupas()
     {
-        foreach (var roupa in _roupas)
+        var infosRoupas = "";
+        foreach (var roupa in Roupas)
         {
-            Console.WriteLine($"Nome: {roupa.Nome}, Quantidade: {roupa.QuantidadePeca}, Categoria: {roupa.CategoriaPeca}, Valor: {roupa.ValorPeca}");
+            infosRoupas =
+                ($"Nome: {roupa.Nome}, Quantidade: {roupa.QuantidadePeca}, Categoria: {roupa.CategoriaPeca}, Valor: {roupa.ValorPeca}");
         }
+
+        return infosRoupas;
     }
-    
+
     public string FinalizarPedido(Cliente cliente)
     {
-        var total = _roupas.Sum(r => r.ValorPeca);
+        var total = Roupas.Sum(r => r.ValorPeca);
         return $"Pedido finalizado com sucesso! Total: {total}";
+    }
+    
+    public int ObterQuantidadeRoupas()
+    {
+        return Roupas.Count;
     }
 }
